@@ -5,23 +5,15 @@
 
     <parameter name="cloud" value="false"/>
     <parameter name="envName" value="saucelabs"/>
-    <parameter name="browser" value="chrome"/>
+    <parameter name="browser" value="firefox"/>
     <parameter name="browserVersion" value="77.0"/>
     <parameter name="url" value="https://www.facebook.com"/>
     <parameter name="platform" value="windows"/>
 
     <test name="Automation tests">
         <classes>
-            <class name="com.facebook.SearchTests"/>
+            <class name="com.facebook.tests.FbSearchTest"/>
         </classes>
 
-        <!--<groups>
-            <run>
-                <exclude name="regression"/>
-            </run>
-        </groups>
-        <packages>
-            <package name="com.cnn.tests"/>
-        </packages>-->
     </test>
 </suite>
