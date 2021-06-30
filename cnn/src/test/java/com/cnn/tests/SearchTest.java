@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class SearchTest extends TestBase {
-    private static Logger LOGGER=Logger.getLogger(SearchTest.class);
+    private static Logger LOGGER = Logger.getLogger(SearchTest.class);
 
     private CNNHomePage homePage;
 
@@ -29,4 +29,26 @@ public class SearchTest extends TestBase {
         ExtentTestManager.log("Logout Successfull", LOGGER);
     }
 
+    @Test(priority = 2)
+    public void navigateItem() {
+        homePage.searchItem();
+        homePage.searchResult();
+        ExtentTestManager.log("Navigating Successfull", LOGGER);
+    }
+
+    @Test(priority = 3)
+    public void searchNewsHead() {
+        homePage.searchNews();
+        homePage.showNews();
+        ExtentTestManager.log("News Successfull Displayed", LOGGER);
+    }
+
+    @Test(priority = 4)
+    public void searchNews() {
+        homePage.findNews();
+        homePage.sendItem("politics");
+        homePage.clickSearch();
+        homePage.displaySearch("politics");
+        ExtentTestManager.log("News Body Successfull Displayed", LOGGER);
+    }
 }

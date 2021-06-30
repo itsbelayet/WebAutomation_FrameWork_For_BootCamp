@@ -18,24 +18,85 @@ public class CNNHomePage {
     @FindBy(xpath = "//div[@class='Box-sc-1fet97o-0 hyVhvp']")
     private WebElement logoutButton;
 
-    public void searchButton(){
+    // Navigation Tab
+    @FindBy(xpath = "//a[@type='collapsed'][normalize-space()='Entertainment']")
+    private WebElement newsItem;
+    @FindBy(xpath = "//div[@class='Cell-i0zvfi-0 sc-kgAjT jYQwPK']")
+    private WebElement displayItem;
+
+    //
+    @FindBy(xpath = "//*[@id='homepage2-zone-1']/div[2]/div/div[2]/ul/li[1]/article/div/div[2]/h3/a/span[2]/strong")
+    private WebElement newsHead;
+    @FindBy(xpath = "/html/body/div[6]/article/div[1]/h1")
+    private WebElement newsText;
+    //
+
+    @FindBy(xpath = "//div[@class='Flex-sc-1sqrs56-0 sc-kvZOFW cJcAaN']//button[@class='sc-jhAzac sc-gisBJw hioqcg']")
+    private WebElement findNews;
+    @FindBy(xpath = "//input[@id='header-search-bar']")
+    private WebElement sendItem;
+    @FindBy(xpath = "//*[@id='header-nav-container']/div/div[2]/div/div[1]/form/button/div[1]")
+    private WebElement clickSearch;
+    @FindBy(xpath = "/html/body/div[5]/div[2]/div/div[2]/div[2]/div/div[1]/strong")
+    private WebElement displaySearch;
+
+    // =======================================
+    public void searchButton() {
         searchLogin.click();
     }
-    public void enterName(String name){
+
+    public void enterName(String name) {
         userName.sendKeys(name);
     }
-    public void enterPassword(String password){
+
+    public void enterPassword(String password) {
         userPassword.sendKeys(password);
     }
-    public void submitButton(){
+
+    public void submitButton() {
         loginButton.click();
     }
-    public void closeButton(){
+
+    public void closeButton() {
         logoutButton.click();
     }
 
-//    public void findText(String expect){
-//        Assert.assertTrue(actuText.getText().contains(expect), "Hi, Tex Not Match");
-//    }
+    //----------------------------------
+    public void searchItem() {
+        newsItem.click();
+    }
+
+    public void searchResult() {
+        boolean chkDisplay = displayItem.isDisplayed();
+        Assert.assertTrue(chkDisplay, "Logo not Display");
+    }
+
+    //------------------------------------
+    public void searchNews() {
+        newsHead.click();
+    }
+
+    public void showNews() {
+        String newsHead = newsText.getText();
+        Assert.assertTrue(newsHead.contains("More than 230 deaths"), "Text not match");
+    }
+
+    //-------------------------------
+    public void findNews() {
+        findNews.click();
+    }
+
+    public void sendItem(String news) {
+        sendItem.sendKeys(news);
+    }
+
+    public void clickSearch() {
+        clickSearch.click();
+    }
+
+    public void displaySearch(String aspectedResult) {
+        String newsBody = displaySearch.getText();
+        Assert.assertTrue(newsBody.contains(aspectedResult), "Resust not match");
+    }
 
 }
