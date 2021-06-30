@@ -22,11 +22,11 @@ public class FbSearchTest extends TestBase {
     public void loginPage() {
         homePage.enterUserName("Labonyo Shahid");
         ExtentTestManager.log("Enter Login Name", LOGGER);
-        homePage.enterUserPassword("Belayet@1964");
+        homePage.enterUserPassword("google.com");
         ExtentTestManager.log("Entered Password", LOGGER);
         homePage.clickButton();
         ExtentTestManager.log("Click on the SignIn button", LOGGER);
-        sleepFor(5);
+        sleepFor(2);
     }
 
 }
