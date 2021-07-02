@@ -7,21 +7,13 @@
     <parameter name="envName" value="saucelabs"/>
     <parameter name="browser" value="chrome"/>
     <parameter name="browserVersion" value="77.0"/>
-    <parameter name="url" value="https://www.citi.com"/>
+    <parameter name="url" value="https://www.citibank.com"/>
     <parameter name="platform" value="windows"/>
 
     <test name="Automation tests">
         <classes>
-            <class name="com.citibank.tests.SearchTests"/>
+            <class name="com.citibank.tests.SearchTest"/>
         </classes>
 
-        <!--<groups>
-            <run>
-                <exclude name="regression"/>
-            </run>
-        </groups>
-        <packages>
-            <package name="com.citibank.tests"/>
-        </packages>-->
     </test>
 </suite>
