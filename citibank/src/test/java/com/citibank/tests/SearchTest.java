@@ -27,4 +27,10 @@ public class SearchTest extends TestBase {
         homePage.displayMsg();
         ExtentTestManager.log("Login Test Successful", LOGGER);
     }
+    @Test(priority = 2)
+    public void selectItemTest() {
+        homePage.selectItem();
+        homePage.selectFromItem();
+        ExtentTestManager.log("Select Item Successful", LOGGER);
+    }
 }
