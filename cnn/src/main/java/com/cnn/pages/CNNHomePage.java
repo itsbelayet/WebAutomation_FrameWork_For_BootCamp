@@ -21,7 +21,7 @@ public class CNNHomePage {
     // Navigation Tab
     @FindBy(xpath = "//a[@type='collapsed'][normalize-space()='Entertainment']")
     private WebElement newsItem;
-    @FindBy(xpath = "//div[@class='Cell-i0zvfi-0 sc-kgAjT jYQwPK']")
+    @FindBy(xpath = "//div[@class='Cell-i0zvfi-0 sc-kgAjT jYQwPK']//a[@aria-label='Entertainment']//*[local-name()='svg']")
     private WebElement displayItem;
 
     //
@@ -31,13 +31,13 @@ public class CNNHomePage {
     private WebElement newsText;
     //
 
-    @FindBy(xpath = "//div[@class='Flex-sc-1sqrs56-0 sc-kvZOFW cJcAaN']//button[@class='sc-jhAzac sc-gisBJw hioqcg']")
+    @FindBy(xpath = "//div[@class='Flex-sc-1sqrs56-0 sc-kvZOFW cJcAaN']//button[@class='sc-jhAzac sc-gisBJw hioqcg']//*[local-name()='svg'")
     private WebElement findNews;
     @FindBy(xpath = "//input[@id='header-search-bar']")
     private WebElement sendItem;
-    @FindBy(xpath = "//*[@id='header-nav-container']/div/div[2]/div/div[1]/form/button/div[1]")
+    @FindBy(xpath = "//input[@id='header-search-bar']")
     private WebElement clickSearch;
-    @FindBy(xpath = "/html/body/div[5]/div[2]/div/div[2]/div[2]/div/div[1]/strong")
+    @FindBy(className = "Text-sc-1amvtpj-0 iEWJSI")
     private WebElement displaySearch;
 
     // =======================================

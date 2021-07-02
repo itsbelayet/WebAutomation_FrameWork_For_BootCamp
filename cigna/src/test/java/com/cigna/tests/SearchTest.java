@@ -8,10 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Set;
+
 public class SearchTest extends TestBase {
     private static Logger LOGGER=Logger.getLogger(SearchTest.class);
     private CignaHomePage homePage;
-
 
     @BeforeMethod
     public void setUpPOM() {
@@ -21,31 +22,31 @@ public class SearchTest extends TestBase {
     @Test(priority = 1)
     public void loginPage() {
         homePage.clickLogin();
-        ExtentTestManager.log("Login Successfull", LOGGER);
-        homePage.typeEmail("its.belayet@gmail.com");
-        homePage.clickOnSignInButton();
-        ExtentTestManager.log("Click on the Continue button", LOGGER);
-        homePage.enterPassword("Miru@1964");
-        ExtentTestManager.log("Entered Password", LOGGER);
-        homePage.clickSignIn();
-        ExtentTestManager.log("Click on the SignIn button", LOGGER);
+        Set<String> newWindow = driver.getWindowHandles();
+        String currentWindow = driver.getWindowHandle();
+        for (String win : newWindow) {
+            if (!win.equalsIgnoreCase(currentWindow)) {
+                driver.switchTo().window(win);
+            }
+        }
+        homePage.userID("Mohammed");
+        homePage.userPass("Hossain");
+        homePage.clickSubmit();
+        homePage.errorMessage1();   // Too much login use Message2
+        ExtentTestManager.log("Credential not match", LOGGER);
     }
-
-//    @Test(priority = 2,enabled = false)
-//    public void logOutPage() {
-//        homePage.clkSignOut();
-//        ExtentTestManager.log("Click LogOut Successfull", LOGGER);
-//        homePage.clickSignOut();
-//        ExtentTestManager.log("LogOut Successfully", LOGGER);
-//    }
-//
-//    @Test(priority = 3)
-//    public void checkBox() {
-//        homePage.typeOnSearchBar("dslr camera");
-//        ExtentTestManager.log("Searching for dslr camera", LOGGER);
-//        homePage.clickOnSearchButton();
-//        ExtentTestManager.log("Click Search Button", LOGGER);
-//        homePage.findText("dslr camera");
-//    }
+    @Test(priority = 2)
+    public void itemTest() {
+        homePage.selectLink();
+        homePage.setSelectLink1();
+        homePage.linkResult();
+        ExtentTestManager.log("Item Test Successful", LOGGER);
+    }
+    @Test(priority = 3)
+    public void linkTest() {
+        homePage.selectFromLink();
+        homePage.linkText();
+        ExtentTestManager.log("Link Test Successful", LOGGER);
+    }
 
 }
