@@ -29,15 +29,15 @@ public class CNNHomePage {
     private WebElement newsHead;
     @FindBy(xpath = "/html/body/div[6]/article/div[1]/h1")
     private WebElement newsText;
-    //
 
-    @FindBy(xpath = "//div[@class='Flex-sc-1sqrs56-0 sc-kvZOFW cJcAaN']//button[@class='sc-jhAzac sc-gisBJw hioqcg']//*[local-name()='svg'")
+    //
+    @FindBy(xpath = "//div[@class='Flex-sc-1sqrs56-0 sc-kvZOFW cJcAaN']//button[@class='sc-jhAzac sc-gisBJw hioqcg']//*[local-name()='svg']")
     private WebElement findNews;
     @FindBy(xpath = "//input[@id='header-search-bar']")
     private WebElement sendItem;
-    @FindBy(xpath = "//input[@id='header-search-bar']")
+    @FindBy(xpath = "//*[@id='header-nav-container']/div/div[2]/div/div[1]/form/button/div[1]")
     private WebElement clickSearch;
-    @FindBy(className = "Text-sc-1amvtpj-0 iEWJSI")
+    @FindBy(xpath = "//strong[normalize-space()='politics']")
     private WebElement displaySearch;
 
     // =======================================
@@ -76,9 +76,8 @@ public class CNNHomePage {
         newsHead.click();
     }
 
-    public void showNews() {
-        String newsHead = newsText.getText();
-        Assert.assertTrue(newsHead.contains("More than 230 deaths"), "Text not match");
+    public void showNews(String newsBody) {
+        Assert.assertTrue(newsText.getText().contains(newsBody), "Text not match");
     }
 
     //-------------------------------
@@ -95,8 +94,7 @@ public class CNNHomePage {
     }
 
     public void displaySearch(String aspectedResult) {
-        String newsBody = displaySearch.getText();
-        Assert.assertTrue(newsBody.contains(aspectedResult), "Resust not match");
+        Assert.assertTrue(displaySearch.getText().contains(aspectedResult), "Resust not match");
     }
 
 }

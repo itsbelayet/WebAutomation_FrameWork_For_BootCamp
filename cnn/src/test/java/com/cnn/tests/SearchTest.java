@@ -18,7 +18,7 @@ public class SearchTest extends TestBase {
         homePage = PageFactory.initElements(driver, CNNHomePage.class);
     }
 
-    @Test(priority = 1,enabled = false)
+    @Test(priority = 1,enabled = true)
     public void loginPage() {
         homePage.searchButton();
         homePage.enterName("its.belayet@gmail.com");
@@ -29,17 +29,17 @@ public class SearchTest extends TestBase {
         ExtentTestManager.log("Logout Successfull", LOGGER);
     }
 
-    @Test(priority = 2,enabled = false)
+    @Test(priority = 2,enabled = true)
     public void navigateItem() {
         homePage.searchItem();
         homePage.searchResult();
         ExtentTestManager.log("Navigating Successfull", LOGGER);
     }
 
-    @Test(priority = 3,enabled = false)
+    @Test(priority = 3,enabled = true)
     public void searchNewsHead() {
         homePage.searchNews();
-        homePage.showNews();
+        homePage.showNews("Covid-19");
         ExtentTestManager.log("News Successfull Displayed", LOGGER);
     }
 
