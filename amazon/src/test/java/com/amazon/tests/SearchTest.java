@@ -18,28 +18,31 @@ public class SearchTest extends TestBase {
         homePage = PageFactory.initElements(driver, AmazonHomePage.class);
     }
 
-    @Test(priority = 1)
+    @Test(enabled = true)
     public void loginPage() {
         homePage.clickLogin();
-        ExtentTestManager.log("Login Successfull", LOGGER);
+        ExtentTestManager.log("Login click Successful", LOGGER);
         homePage.typeEmail("its.belayet@gmail.com");
         homePage.clickOnSignInButton();
         ExtentTestManager.log("Click on the Continue button", LOGGER);
         homePage.enterPassword("Miru@1964");
         ExtentTestManager.log("Entered Password", LOGGER);
         homePage.clickSignIn();
-        ExtentTestManager.log("Click on the SignIn button", LOGGER);
+        ExtentTestManager.log("SignIn Successful", LOGGER);
+        homePage.clkSignOut();
+        homePage.clickSignOut();
+        ExtentTestManager.log("LogOut Successfully", LOGGER);
     }
-
-    @Test(priority = 2,enabled = false)
+/*
+    @Test(enabled = false)
     public void logOutPage() {
         homePage.clkSignOut();
         ExtentTestManager.log("Click LogOut Successfull", LOGGER);
         homePage.clickSignOut();
         ExtentTestManager.log("LogOut Successfully", LOGGER);
     }
-
-    @Test(priority = 3)
+*/
+    @Test(enabled = true)
     public void checkBox() {
         homePage.typeOnSearchBar("dslr camera");
         ExtentTestManager.log("Searching for dslr camera", LOGGER);
@@ -47,5 +50,16 @@ public class SearchTest extends TestBase {
         ExtentTestManager.log("Click Search Button", LOGGER);
         homePage.findText("dslr camera");
     }
-
+    @Test(enabled = true)
+    public void shopping() {
+        homePage.checkBox("nikon 7500 camera");
+        ExtentTestManager.log("Searching for dslr camera", LOGGER);
+        homePage.checkButton();
+        ExtentTestManager.log("Click Search Button", LOGGER);
+        homePage.product();
+        homePage.addToCart();
+        homePage.noThanks();
+        homePage.checkOut();
+        ExtentTestManager.log("Check Out Successful", LOGGER);
+    }
 }

@@ -18,15 +18,48 @@ public class FbSearchTest extends TestBase {
         homePage = PageFactory.initElements(driver, FacebookHomePage.class);
     }
 
-    @Test(priority = 1)
+    @Test(enabled = true)
     public void loginPage() {
         homePage.enterUserName("Labonyo Shahid");
         ExtentTestManager.log("Enter Login Name", LOGGER);
         homePage.enterUserPassword("google.com");
         ExtentTestManager.log("Entered Password", LOGGER);
         homePage.clickButton();
-        ExtentTestManager.log("Click on the SignIn button", LOGGER);
-        sleepFor(2);
+        ExtentTestManager.log("Login Successful", LOGGER);
+        sleepFor(3);
+        homePage.logOut();
+        homePage.logOutButton();
+        ExtentTestManager.log("LogOut Successful", LOGGER);
     }
+    @Test(enabled = true)
+    public void searchName() {
+        homePage.enterUserName("Labonyo Shahid");
+        homePage.enterUserPassword("google.com");
+        homePage.clickButton();
+        ExtentTestManager.log("Login Successful", LOGGER);
+        sleepFor(2);
+        homePage.searchName("hiru");
+        homePage.clickSearch();
+        homePage.findName("People");
+        ExtentTestManager.log("Search Name Successful", LOGGER);
+        homePage.logOut();
+        homePage.logOutButton();
+    }
+    @Test(enabled = true)
+    public void uploadPic() {
+        homePage.enterUserName("Labonyo Shahid");
+        homePage.enterUserPassword("google.com");
+        homePage.clickButton();
+        ExtentTestManager.log("Login Successful", LOGGER);
+        sleepFor(2);
 
+        //homePage.uploadPic();
+        homePage.uploadClick();
+        //homePage.sendText();
+        //homePage.sendPic();
+
+        ExtentTestManager.log("Image Upload Successful", LOGGER);
+        homePage.logOut();
+        homePage.logOutButton();
+    }
 }

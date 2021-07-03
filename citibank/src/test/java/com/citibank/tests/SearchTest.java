@@ -5,6 +5,7 @@ import com.pnt.base.TestBase;
 import com.pnt.base.report.ExtentTestManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -33,4 +34,12 @@ public class SearchTest extends TestBase {
         homePage.selectFromItem();
         ExtentTestManager.log("Select Item Successful", LOGGER);
     }
+    @Test(priority = 3)
+    public void searchItem(){
+        homePage.searchClick();
+        homePage.searchBox("personal loan");
+        homePage.search();
+        homePage.searchResult();
+    }
+
 }

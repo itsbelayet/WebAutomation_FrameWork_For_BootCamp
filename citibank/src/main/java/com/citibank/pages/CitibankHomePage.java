@@ -26,6 +26,17 @@ public class CitibankHomePage extends TestBase {
     private WebElement itemText;
 
     //--------------------------
+
+    @FindBy(xpath = "//*[@id='personetics-citi-menu']")
+    private WebElement searchClick;
+    @FindBy(xpath = "//*[@id='autocomplete-search']")
+    private WebElement searchBox;
+    @FindBy(xpath = "//button[normalize-space()='Search']")
+    private WebElement search;
+    @FindBy(xpath = "//b[normalize-space()='personal loan']")
+    private WebElement searchResult;
+
+    //---------------------------
     public void userID(String name) {
         userID.sendKeys(name);
     }
@@ -53,6 +64,20 @@ public class CitibankHomePage extends TestBase {
         selectFromItem.click();
         sleepFor(2);
         Assert.assertTrue(itemText.getText().contains("Travel Rewards Credit Cards"), "Result not match");
+    }
+
+    //-------
+    public void searchClick(){
+        searchClick.click();
+    }
+    public void searchBox(String item) {
+        searchBox.sendKeys(item);
+    }
+    public void search(){
+        search.click();
+    }
+    public void searchResult(){
+        Assert.assertTrue(searchResult.getText().contains("personal loan"),"Display Result not match");
     }
 
 }
