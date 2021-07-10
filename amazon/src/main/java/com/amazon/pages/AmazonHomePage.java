@@ -37,7 +37,7 @@ public class AmazonHomePage extends TestBase {
 
     // Sign Out
     @FindBy(xpath = "//*[@id='nav-link-accountList']")
-    private WebElement searchSignOut;   // //*[@id='nav-item-signout']
+    private WebElement searchSignOut;
     @FindBy(xpath = "//*[@id='nav-item-signout']")
     private WebElement signOutClick;
 

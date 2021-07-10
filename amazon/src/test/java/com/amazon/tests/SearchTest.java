@@ -33,15 +33,6 @@ public class SearchTest extends TestBase {
         homePage.clickSignOut();
         ExtentTestManager.log("LogOut Successfully", LOGGER);
     }
-/*
-    @Test(enabled = false)
-    public void logOutPage() {
-        homePage.clkSignOut();
-        ExtentTestManager.log("Click LogOut Successfull", LOGGER);
-        homePage.clickSignOut();
-        ExtentTestManager.log("LogOut Successfully", LOGGER);
-    }
-*/
     @Test(enabled = true)
     public void checkBox() {
         homePage.typeOnSearchBar("dslr camera");

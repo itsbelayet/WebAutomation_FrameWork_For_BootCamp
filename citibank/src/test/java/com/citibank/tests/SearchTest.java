@@ -5,11 +5,9 @@ import com.pnt.base.TestBase;
 import com.pnt.base.report.ExtentTestManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.Set;
 
 public class SearchTest extends TestBase {
     private static Logger LOGGER=Logger.getLogger(SearchTest.class);
@@ -40,6 +38,7 @@ public class SearchTest extends TestBase {
         homePage.searchBox("personal loan");
         homePage.search();
         homePage.searchResult();
+        ExtentTestManager.log("Personal Loan Page Display Successful", LOGGER);
     }
 
 }
